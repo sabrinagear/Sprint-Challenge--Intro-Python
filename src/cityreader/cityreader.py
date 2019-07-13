@@ -29,7 +29,7 @@ def cityreader(cities=[]):
         next(csvreader)
         line_count = 0
         for row in csvreader:
-              cities.append(City(row[0],row[3],row[4]))
+              cities.append(City(row[0],float(row[3]),float(row[4])))
               line_count += 1
         print(f'Processed {line_count} lines.')
         return cities
