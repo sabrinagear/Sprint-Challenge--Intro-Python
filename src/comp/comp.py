@@ -22,66 +22,45 @@ humans = [
 
 # name starts with 'D':
 print("Starts with D:")
-a = []
-for x in humans:
-    if x.name.startswith("D"):
-        a.append(x.name)
+a = [x.name for x in humans if x.name.startswith("D")]
 print(a)
 
 # name ends in "e".
 print("Ends with e:")
-b = []
-for x in humans:
-    if x.name.endswith("e"):
-        b.append(x.name)
+b = [x.name for x in humans if x.name.endswith("e")]
 print(b)
 
 # name starts with any letter between 'C' and 'G'
 # inclusive.
 print("Starts between C and G, inclusive:")
-c = []
-tr = map(chr, range(67, 72))
-c = []
-for x in tr:
-    for y in humans:
-        if y.name.startswith(x):
-            c.append(y.name)
+letters = map(chr, range(67, 72))
+c = [y.name for x in letters for y in humans if y.name.startswith(x)]
+
 print(c)
 
 # all ages plus 10.
 print("Ages plus 10:")
-d = []
-for x in humans:
-    d.append(x.age + 10)
+d = [x.age + 10 for x in humans]
 print(d)
 
 # name-age
 print("Name hyphen age:")
-e = []
-for x in humans:
-    e.append(x.name + "-" + str(x.age))
+e = [x.name + "-" + str(x.age) for x in humans]
 print(e)
 
 # ages of humans in range 27 to 32,
 # inclusive.
 print("Names and ages between 27 and 32:")
-f = []
-for x in humans:
-    if x.age in range(27,33):
-        f.append((x.name,x.age)) 
+f = [(x.name,x.age) for x in humans if x.age in range(27,33)]
 print(f)
 
 # all names uppercase
 print("All names uppercase:")
-g = []
-for x in humans:
-    g.append(Human(x.name.upper(),x.age + 5))
+g = [Human(x.name.upper(),x.age + 5) for x in humans]
 print(g)
 
 # square root of all the ages.
 print("Square root of ages:")
 import math
-h = []
-for x in humans:
-    h.append(math.sqrt(x.age))
+h = [math.sqrt(x.age) for x in humans]
 print(h)
